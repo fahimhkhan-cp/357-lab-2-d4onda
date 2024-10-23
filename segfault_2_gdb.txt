@@ -1,0 +1,14 @@
+(gdb) r
+Starting program: /home/dtforond/csc357/357-lab-2-d4onda/segfault_2 
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004004f9 in kerblam ()
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-323.el7_9.x86_64
+(gdb) list
+No symbol table is loaded.  Use the "file" command.
+(gdb) back
+#0  0x00000000004004f9 in kerblam ()
+#1  0x000000000040050f in explode ()
+#2  0x000000000040051f in kaboom ()
+#3  0x000000000040052f in main ()
+(gdb) quit

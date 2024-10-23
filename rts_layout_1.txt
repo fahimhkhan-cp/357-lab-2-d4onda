@@ -1,0 +1,58 @@
+(gdb) break main
+Breakpoint 1 at 0x400550: file layout_1.c, line 24.
+(gdb) run
+Starting program: /home/dtforond/csc357/357-lab-2-d4onda/a.out 
+
+Breakpoint 1, main () at layout_1.c:24
+24         int first = 111;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-323.el7_9.x86_64
+(gdb) s
+25         int second = 222;
+(gdb) s
+26         int *p = &first;
+(gdb) s
+28         start();
+(gdb) print &first
+$1 = (int *) 0x7fffffffe5bc
+(gdb) print &second
+$2 = (int *) 0x7fffffffe5cc
+(gdb) print &p
+$3 = (int **) 0x7fffffffe5c0
+(gdb) print p
+$4 = (int *) 0x7fffffffe5bc
+(gdb) print *p
+$5 = 111
+(gdb) n
+29         function_one(357);
+(gdb) s
+function_one (input=357) at layout_1.c:8
+8          int function_one_local = input;
+(gdb) s
+9       }
+(gdb) print fonction_one_local
+No symbol "fonction_one_local" in current context.
+(gdb) print function_one_local
+$6 = 357
+(gdb) print &function_one_local
+$7 = (int *) 0x7fffffffe59c
+(gdb) s
+main () at layout_1.c:30
+30         function_two(0);
+(gdb) s
+function_two (input=0) at layout_1.c:15
+15         function_two_local = input;
+(gdb) print &function_two_local
+$8 = (int *) 0x7fffffffe59c
+(gdb) print function_two_local
+$9 = 357
+(gdb) quit
+
+
+Variable          | Value           | Address
+_______________________________________________________
+
+first             | 111             | 0x7fffffffe5bc
+second            | 222             | 0x7fffffffe5cc
+p                 | 0x7fffffffe5bc  | 0x7fffffffe5c0
+function_one_local| 357             | 0x7fffffffe59c
+function_two_local| 357             | 0x7fffffffe59c 
